@@ -52,9 +52,9 @@
 };
 
 &lt {
-    tapping-term-ms = <120>;
+    tapping-term-ms = <180>;
     flavor = "hold-preferred";
-    hold-while-undecided;
+    
 };
 
 &mt {
@@ -243,6 +243,7 @@
                 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
+            sensor-bindings = <&mouse_scrl SCRL_LEFT SCRL_RIGHT>;
         };
 
         // Layer 8: Settings
