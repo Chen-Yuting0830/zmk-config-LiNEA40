@@ -48,6 +48,7 @@
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
             <&zip_xy_to_scroll_mapper>;
+            <&zip_scroll_scaler 3 4>;
     };
 };
 
@@ -116,6 +117,51 @@
                 <&macro_release>,
                 <&kp LCTRL>;
         };
+
+move_up_5: move_up_5 {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <40>;
+    tap-ms = <40>;
+    bindings = <
+        &kp UP_ARROW &kp UP_ARROW &kp UP_ARROW
+        &kp UP_ARROW &kp UP_ARROW
+    >;
+};
+
+move_down_5: move_down_5 {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <40>;
+    tap-ms = <40>;
+    bindings = <
+        &kp DOWN_ARROW &kp DOWN_ARROW &kp DOWN_ARROW
+        &kp DOWN_ARROW &kp DOWN_ARROW
+    >;
+};
+
+move_left_5: move_left_5 {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <40>;
+    tap-ms = <40>;
+    bindings = <
+        &kp LEFT_ARROW &kp LEFT_ARROW &kp LEFT_ARROW
+        &kp LEFT_ARROW &kp LEFT_ARROW
+    >;
+};
+
+move_right_5: move_right_5 {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <40>;
+    tap-ms = <40>;
+    bindings = <
+        &kp RIGHT_ARROW &kp RIGHT_ARROW &kp RIGHT_ARROW
+        &kp RIGHT_ARROW &kp RIGHT_ARROW
+    >;
+};
+
     };
 
     behaviors {
@@ -182,7 +228,7 @@
             display-name = "Win-Fnc";
             bindings = <
                 &kp LC(A)  &kp HOME  &kp UP_ARROW  &kp END  &kp LC(F)  &kp LESS_THAN  &kp N7  &kp N8  &kp N9  &kp MINUS
-                &kp TAB  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LANGUAGE_2  &kp LANGUAGE_1  &kp N4  &kp N5  &kp N6  &kp LS(SEMI)
+                &mo 11  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LANGUAGE_2  &kp LANGUAGE_1  &kp N4  &kp N5  &kp N6  &kp LS(SEMI)
                 &kp LC(W)  &mkp MB1  &mkp MB2  &kp LA(LEFT)  &mkp MB3  &kp N0  &kp N1  &kp N2  &kp N3  &kp SINGLE_QUOTE
                 &kp LCTRL  &kp LGUI  &trans  &trans  &trans  &trans  &mt RIGHT_SHIFT DELETE  &kp LC(TAB)  &kp BACKSPACE  &kp ENTER  &kp RIGHT_ALT
             >;
@@ -243,7 +289,7 @@
                 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
-            sensor-bindings = <&mouse_scrl SCRL_LEFT SCRL_RIGHT>;
+            sensor-bindings = <&mouse_scrl SCRL_RIGHT SCRL_LEFT>;
         };
 
         // Layer 8: Settings
@@ -279,5 +325,24 @@
                 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(PAGE_DOWN)  &trans  &trans  &kp LS(INT1)
             >;
         };
+
+        // Layer 11: Move5
+Move5 {
+    display-name = "Move5";
+    bindings = <
+        &trans &trans &move_up_5 &trans &trans
+        &trans &trans &trans &trans &trans
+
+        &trans &move_left_5 &move_down_5 &move_right_5 &trans
+        &trans &trans &trans &trans &trans
+
+        &trans &trans &trans &trans &trans
+        &trans &trans &trans &trans &trans
+
+        &trans &trans &trans &trans &trans &trans
+        &trans &trans &trans &trans &trans
+    >;
+};
+
     };
 };
